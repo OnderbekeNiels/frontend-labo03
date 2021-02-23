@@ -1,0 +1,19 @@
+:root {
+  --global-theme-color-base: rgb(83, 112, 255);
+}
+
+/* ! Doe nooit  * */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    overflow: hidden;
+}
+
+html {
+  background: var(--global-theme-color-base);
+}
