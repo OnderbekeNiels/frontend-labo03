@@ -3,13 +3,15 @@ const draw = (function () {
   // Deze iife || self invocing function maakt een 'state' aan en is dus een closure.
 
   let ctx = null;
+  let canvasElement = null;
 
-  const matchCanvasToWindow = (canvasElement) => {
+  const matchCanvasToWindow = () => {
     canvasElement.width = window.innerWidth;
     canvasElement.height = window.innerHeight;
   };
 
-  const setup = (canvasElement) => {
+  const setup = (par_canvasElement) => {
+    canvasElement = par_canvasElement;
     window.addEventListener("resize", function () {
       matchCanvasToWindow(canvasElement);
     });
@@ -18,18 +20,16 @@ const draw = (function () {
   };
 
   const circle = (x, y, { size, color }) => {
-    //We tekenen steeds op een context.
-    console.log({ ctx });
     ctx.beginPath();
     ctx.fillStyle = color;
     ctx.arc(x, y, size, 0, 2 * Math.PI);
     ctx.fill();
-    //   ctx.stroke();
   };
 
   const clearArea = () => {
-
+    ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
   }
+
   return { setup, circle, clearArea };
 })();
 

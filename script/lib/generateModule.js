@@ -9,10 +9,11 @@ const generate = (function () {
     const drawParticles = (amount) => {
       const gutters = {
         x: window.innerWidth / (amount + 2),
-        y: window.innerHeight / amount,
+        y: window.innerHeight / (amount + 2),
       };
 
       for (let i = 0; i < amount; i++) {
+        console.log(gutters.x, gutters.y);
         draw.circle(i * gutters.x, i * gutters.y, { size: 20, color: "white" });
       }
     };
@@ -22,7 +23,7 @@ const generate = (function () {
     const loop = setInterval(() => {
       if (particleCount > maxParticles) {
         //   clearInterval(loop); 2 opties
-        particleCount = 0;
+        particleCount = 1;
       }
       draw.clearArea();
       drawParticles(particleCount);
