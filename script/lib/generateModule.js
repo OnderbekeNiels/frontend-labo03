@@ -12,9 +12,17 @@ const generate = (function () {
         y: window.innerHeight / (amount + 2),
       };
 
-      for (let i = 0; i < amount; i++) {
-        console.log(gutters.x, gutters.y);
-        draw.circle(i * gutters.x, i * gutters.y, { size: 20, color: "white" });
+      for (let i = 1; i < amount; i++) {
+        // ! niet af
+        // console.log(window.innerWidth);
+        // console.log(window.innerHeight);
+        // console.log(gutters.x);
+        // console.log(gutters.y);
+        // console.log({amount});
+        draw.circle(window.innerWidth / 2, window.innerHeight / 2, {
+          size: 20,
+          color: "white",
+        });
       }
     };
 

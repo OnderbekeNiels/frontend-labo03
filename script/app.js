@@ -14,6 +14,6 @@
     draw.circle(150, 150, p2);
     draw.circle(95, 150, p3);
 
-    generate.repeatingPattern(200, 1000) //circular, square
+   generate.repeatingPattern(1000, 200); //circular, square
   });
 })();
