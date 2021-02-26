@@ -3,20 +3,19 @@ const draw = (function () {
   // Deze iife || self invocing function maakt een 'state' aan en is dus een closure.
 
   let ctx = null;
-  let canvasElement = null;
 
-  const matchCanvasToWindow = () => {
-    canvasElement.width = window.innerWidth;
-    canvasElement.height = window.innerHeight;
+  const matchCanvasToWindow = (canvasElement) => {
+    canvasElement.width = document.documentElement.clientWidth;
+    canvasElement.height = document.documentElement.clientHeight;
   };
 
-  const setup = (par_canvasElement) => {
-    canvasElement = par_canvasElement;
+  const setup = (canvasElement) => {
     window.addEventListener("resize", function () {
       matchCanvasToWindow(canvasElement);
     });
     matchCanvasToWindow(canvasElement);
     ctx = canvasElement.getContext("2d");
+    return ctx;
   };
 
   const circle = (x, y, { size, color }) => {
@@ -27,10 +26,8 @@ const draw = (function () {
   };
 
   const clearArea = () => {
-    ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
-  }
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+  };
 
   return { setup, circle, clearArea };
 })();
-
-// todo - module pattern voor een generator module pattern - hierin maken we een timer die (punten tekent vanuit het middenpunt, omde seconde, timer kan geannuleerd worden, exponentieel punten erbij renderen, bepaalde bovenlimit heeft)

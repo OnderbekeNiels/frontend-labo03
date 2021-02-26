@@ -1,5 +1,5 @@
 :root {
-  --global-theme-color-base: rgb(83, 112, 255);
+  --global-theme-color-base: rgb(228, 228, 228);
 }
 
 /* ! Doe nooit  * */
@@ -8,6 +8,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  cursor: none;
 }
 
 body{
